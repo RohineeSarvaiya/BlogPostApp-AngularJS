@@ -1,0 +1,18 @@
+<div class="container">
+
+  <h1 style="margin-top: 10px;" class="mb-4">Welcome to My Blog Website!!</h1>
+  <a routerLink="/add" class="btn btn-success">Create New Blog</a>
+  
+  <div class="card mt-4" *ngFor="let blog of ListBlog.slice().reverse()  ">
+    <div class="card-body">
+      <h4 class="card-title">{{blog.TITLE}}</h4>
+      <div class="card-subtitle text-muted mb-2"> {{blog.CREATED_DATE}}</div>
+      <div class="card-text mb-2"><i>- {{blog.AUTHOR}}</i></div>
+      <div class="card-text mb-2"><i>{{blog.ABSTRACT}}</i></div>
+      <button (click)="showBlog(blog.ID)" class="btn btn-primary">Show More</button>&nbsp;&nbsp;
+      <button (click)="editBlog(blog.ID)" class="btn btn-info">Edit</button>&nbsp;&nbsp;
+      <button (click)="deleteBlog(blog.ID)" id="deleteBtn" class="btn btn-danger" >Delete</button>
+    </div>
+  </div>
+
+</div>

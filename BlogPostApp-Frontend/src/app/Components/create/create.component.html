@@ -1,0 +1,90 @@
+<div class="container"  style="margin-top:20px;width: 1000px;">
+ 
+  <fieldset style="padding:30px; border : 3px solid lightskyblue; border-radius:10px">
+  <legend  style="text-align:center;color:black; width:300px; background:lightskyblue; padding:10px; border-radius:10px; font-size:30px;">
+    <h3>Create Blog</h3>
+  </legend>
+    
+  <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"  novalidate>	
+    <table class="container" cellpadding="10" style="background-color: aliceblue;">
+      <tr>
+        <td style="width: 200px; padding: 10px; font-weight:bold;">
+          <label for="title">TITLE</label>
+          <h5 style="color: red; display: inline;">*</h5>
+        </td>
+        <td>
+          <input type="text" class="form-control"  name="title"  id="title"  [(ngModel)]="blog.TITLE" #title="ngModel" [ngClass]="{ 'is-invalid': f.submitted && title.invalid }" required  maxlength="60" >
+          <div *ngIf="f.submitted && title.invalid" class="invalid-feedback">
+            <div *ngIf="title.errors?.required">Blog title is required</div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td style="width: 200px; padding: 10px;font-weight:bold;">
+          <label for="author">AUTHOR </label>
+          <h5 style="color: red; display: inline;">*</h5>
+        </td>
+        <td> 
+          <input  type="text" class="form-control" name="author" id="author" [(ngModel)]="blog.AUTHOR" #author="ngModel" [ngClass]="{ 'is-invalid': f.submitted && author.invalid }" required  maxlength="60"  >
+          <div *ngIf="f.submitted && author.invalid" class="invalid-feedback">
+            <div *ngIf="author.errors?.required">Author name is required</div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td style="width: 200px; padding: 10px;font-weight:bold;">
+          <label for="abstract">ABSTRACT</label>
+          <h5 style="color: red; display: inline;">*</h5>
+        </td>
+        <td> 
+          <textarea class="form-control" name="abstract" id="abstract" [(ngModel)]="blog.ABSTRACT" #abstract="ngModel" [ngClass]="{ 'is-invalid': f.submitted && abstract.invalid }" required   maxlength="200" ></textarea>
+          <div *ngIf="f.submitted && abstract.invalid" class="invalid-feedback">
+            <div *ngIf="abstract.errors?.required">Abstract is required</div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td style="width: 200px; padding: 10px;font-weight:bold;">
+          <label for="categories">CATEGORIES</label>
+          <h5 style="color: red; display: inline;">*</h5>
+        </td>
+        <td> 
+          <input type="text" class="form-control" name="categories" id="categories" [(ngModel)]="blog.CATEGORIES" #categories="ngModel" [ngClass]="{ 'is-invalid': f.submitted && categories.invalid }" required   maxlength="200"    >
+          <div *ngIf="f.submitted && categories.invalid" class="invalid-feedback">
+            <div *ngIf="categories.errors?.required">Category is required</div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td style="width: 200px; padding: 10px;font-weight:bold;">
+          <label for="description">DESCRIPTION</label>
+          <h5 style="color: red; display: inline;">*</h5>
+        </td>
+        <td> 
+          <textarea class="form-control" name="description" id="description" [(ngModel)]="blog.DESCRIPTION" #description="ngModel" [ngClass]="{ 'is-invalid': f.submitted && description.invalid }" required    ></textarea>
+          <div *ngIf="f.submitted && description.invalid" class="invalid-feedback">
+            <div *ngIf="description.errors?.required">Description is required</div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td style="padding-left: 200px;"> 
+          <button (click)="cancel()"  class="btn btn-secondary">Cancel</button>&nbsp;&nbsp;
+          <button  type="submit" class="btn btn-primary">Create</button>
+        </td>
+      </tr>	
+         
+    </table>	  
+  </form>
+      
+  </fieldset>	
+</div>
+    
+
+  

@@ -1,0 +1,22 @@
+<div class="container">   
+
+  <button (click)="back()" style="margin-top:20px;" class="btn btn-success">Back to Home Page</button> 
+  
+  <div class="card mt-4">
+    <div class="card-body">  
+      <h4 class="card-title">{{blog.TITLE}}</h4>
+      <div class="card-subtitle text-muted mb-2">{{blog.CREATED_DATE}}</div>
+      <div class="card-text mb-2"><i>- {{blog.AUTHOR}}</i></div>
+      <br>
+      <button (click)="editBlog(blog.ID)" class="btn btn-info">Edit</button> &nbsp;
+      <button (click)="deleteBlog(blog.ID)" id="deleteBtn" class="btn btn-danger" >Delete</button>
+      <br>
+      <br>
+      <div class="card-text mb-2"><i>{{blog.ABSTRACT}}</i></div>
+      <div class="card-text mb-2"><b>Categories :-</b> {{blog.CATEGORIES}}</div>
+      <br>
+      <div class="card-text mb-2">{{blog.DESCRIPTION}}</div>
+    </div> 
+  </div>
+   
+</div>
